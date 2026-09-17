@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolveSphere - Collaborative Problem Solving</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">🌐 SolveSphere</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#challenges">Challenges</a>
+            <a href="#about">About</a>
+            <button onclick="showLogin()">Login</button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <p class="tag">SMART INDIA HACKATHON 2026</p>
+
+            <h1>Turn Problems<br>Into <span>Solutions.</span></h1>
+
+            <p>
+                SolveSphere connects citizens, students, universities
+                and industry experts to collaboratively solve real-world
+                societal challenges.
+            </p>
+
+            <div class="buttons">
+                <button class="primary" onclick="showChallengeForm()">
+                    🚀 Raise a Challenge
+                </button>
+
+                <button class="secondary" onclick="scrollToChallenges()">
+                    🔍 Explore Challenges
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="circle">💡</div>
+            <h2>One Problem.</h2>
+            <h2>Many Minds.</h2>
+            <h2 class="blue">One Solution.</h2>
+        </div>
+
+    </section>
+
+    <section class="how" id="about">
+
+        <h2>How SolveSphere Works</h2>
+
+        <p class="subtitle">
+            From identifying a problem to creating a solution
+        </p>
+
+        <div class="steps">
+
+            <div class="step">
+                <div>📝</div>
+                <h3>Submit</h3>
+                <p>Citizens submit real societal challenges.</p>
+            </div>
+
+            <div class="step">
+                <div>🤖</div>
+                <h3>AI Categorize</h3>
+                <p>Challenges are categorized automatically.</p>
+            </div>
+
+            <div class="step">
+                <div>🎯</div>
+                <h3>Smart Match</h3>
+                <p>Suitable students and experts are suggested.</p>
+            </div>
+
+            <div class="step">
+                <div>💡</div>
+                <h3>Collaborate</h3>
+                <p>Teams work together to develop solutions.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="challenges" id="challenges">
+
+        <h2>Featured Challenges</h2>
+
+        <div class="challenge-container">
+
+            <div class="challenge">
+                <span>Environment</span>
+                <h3>Waste Management in Cities</h3>
+                <p>How can technology improve waste collection and recycling?</p>
+                <button onclick="showDetails('Waste Management')">
+                    View Challenge →
+                </button>
+            </div>
+
+            <div class="challenge">
+                <span>Education</span>
+                <h3>Digital Learning Access</h3>
+                <p>Improving access to quality digital education for students.</p>
+                <button onclick="showDetails('Digital Learning')">
+                    View Challenge →
+                </button>
+            </div>
+
+            <div class="challenge">
+                <span>Healthcare</span>
+                <h3>Rural Healthcare Support</h3>
+                <p>Connecting rural communities with better healthcare resources.</p>
+                <button onclick="showDetails('Rural Healthcare')">
+                    View Challenge →
+                </button>
+            </div>
+
+        </div>
+<section id="collaboration" class="collaboration-section">
+
+    <h2>🤝 Collaboration</h2>
+
+    <p>
+        Connect with students and experts to work together on real-world challenges.
+    </p>
+
+    <div class="collaboration-box">
+
+        <h3 id="selectedChallenge">Selected Challenge</h3>
+
+        <button type="button" onclick="joinTeam()">🤝 Join a Team</button>
+
+        <button type="button" onclick="findExpert()">👨‍🏫 Find an Expert</button>
+
+    </div>
+
+    <div id="collaborationResult"></div>
+
+</section>
+    </section>
+
+<section class="dashboard" id="dashboard">
+
+    <h2>📊 SolveSphere Dashboard</h2>
+ 
+    <p>Track challenges, teams, experts and solutions</p>
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h3>3</h3>
+            <p>Total Challenges</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>12</h3>
+            <p>Student Teams</p>
+        </div>
+<div id="dashboardTeam" class="dashboard-team">
+    <h3>👥 My Team</h3>
+    <p>No team joined yet.</p>
+</div>
+<div class="matching-box">
+    <h3>🤖 AI Smart Matching</h3>
+    <p>Find the most suitable team and expert for your challenge.</p>
+
+    <button onclick="smartMatch()">🔍 Find Best Match</button>
+
+    <div id="matchResult"></div>
+</div>
+<div class="activity-box">
+
+    <h3>📈 My Activity</h3>
+
+    <div class="activity-item">
+        <span>📝 Challenges Submitted</span>
+        <strong>1</strong>
+    </div>
+
+    <div class="activity-item">
+        <span>💡 Solutions Submitted</span>
+        <strong>1</strong>
+    </div>
+
+    <div class="activity-item">
+        <span>🤝 Teams Joined</span>
+        <strong>1</strong>
+    </div>
+    <div class="notification-box">
+    <h3>🔔 Notifications</h3>
+
+    <div id="notifications">
+        <p>📩 No new notifications.</p>
+    </div>
+</div>
+
+    <div class="activity-item">
+        <span>👨‍🏫 Experts Connected</span>
+        <strong>1</strong>
+    </div>
+
+</div>
+        <div class="stat-card">
+            <h3>8</h3>
+            <p>Experts</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>15</h3>
+            <p>Solutions</p>
+        </div>
+
+    </div>
+
+    <div class="recent-box">
+
+        <h3>Recent Challenges</h3>
+
+        <p>🌱 Waste Management in Cities</p>
+        <p>📚 Digital Learning Access</p>
+        <p>🏥 Rural Healthcare Support</p>
+
+    </div>
+
+</section>
+<section class="solution-section" id="solutions">
+
+    <h2>💡 Submit a Solution</h2>
+
+    <p>Have an idea? Share your solution with the community.</p>
+
+    <div class="form-box">
+
+        <input type="text"
+               id="solutionTitle"
+               placeholder="Solution Title">
+
+        <input type="text"
+               id="teamName"
+               placeholder="Team / Organization Name">
+
+        <textarea id="solutionDescription"
+                  placeholder="Describe your solution..."></textarea>
+
+        <button onclick="submitSolution()">
+            🚀 Submit Solution
+        </button>
+
+        <div id="solutionResult"></div>
+
+    </div>
+
+</section>
+<section class="login-section" id="login">
+
+    <h2>🔐 Join SolveSphere</h2>
+    <p>Connect with students, experts and organizations.</p>
+
+    <div class="form-box">
+
+        <input type="text"
+               id="userName"
+               placeholder="Enter your name">
+
+        <input type="email"
+               id="userEmail"
+               placeholder="Enter your email">
+
+        <select id="userRole">
+            <option value="">Select your role</option>
+            <option>Student</option>
+            <option>Expert</option>
+            <option>Organization</option>
+        </select>
+
+        <button onclick="loginUser()">
+            Login / Register
+        </button>
+
+        <div id="loginResult"></div>
+
+    </div>
+
+</section>
+    <footer>
+        <h2>🌐 SolveSphere</h2>
+        <p>Collaborate. Innovate. Solve.</p>
+        <p>SIH 2026 • Problem Statement SIH26043</p>
+        <section class="how-section" id="how-it-works">
+
+    <h2>🚀 How SolveSphere Works</h2>
+
+    <p class="how-subtitle">
+        From identifying a problem to creating a solution — everything in one platform.
+    </p>
+
+    <div class="steps-container">
+
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>📝 Raise a Challenge</h3>
+            <p>
+                Universities and organizations submit real-world societal problems.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>🤖 AI Categorization</h3>
+            <p>
+                The platform categorizes challenges and identifies suitable skills.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>🎯 Smart Matching</h3>
+            <p>
+                Students, teams and experts are matched with relevant challenges.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>🤝 Collaborate</h3>
+            <p>
+                Teams and experts collaborate to develop practical solutions.
+            </p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">5</div>
+            <h3>💡 Submit Solution</h3>
+            <p>
+                Completed solutions are submitted and shared with the community.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+    </footer>
+<section class="submit-section" id="submit">
+
+    <h2>Raise a Challenge</h2>
+
+    <p>
+        Tell us about a real-world problem that needs a solution.
+    </p>
+
+    <div class="form-box">
+
+        <input
+            type="text"
+            id="challengeTitle"
+            placeholder="Challenge Title"
+        >
+
+        <textarea
+            id="challengeDescription"
+            placeholder="Describe the problem..."
+        ></textarea>
+
+        <select id="challengeCategory">
+            <option value="">Select Category</option>
+            <option>Environment</option>
+            <option>Education</option>
+            <option>Healthcare</option>
+            <option>Transportation</option>
+            <option>Technology</option>
+            <option>Other</option>
+        </select>
+
+        <button class="primary" onclick="submitChallenge()">
+            Submit Challenge 
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+</section>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
