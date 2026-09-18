@@ -4,11 +4,10 @@ const app = express();
 
 app.use(express.json());
 
-// Allow GitHub Pages frontend to connect
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
 
     if (req.method === "OPTIONS") {
         return res.sendStatus(204);
@@ -17,39 +16,41 @@ app.use((req, res, next) => {
     next();
 });
 
-let challenges = [
-    {
-        id: 1,
-        title: "Waste Management in Cities",
-        category: "Environment",
-        description: "How can technology improve waste collection and recycling?"
-    },
-    {
-        id: 2,
-        title: "Digital Learning Access",
-        category: "Education",
-        description: "How can students get better access to digital education?"
-    },
-    {
-        id: 3,
-        title: "Rural Healthcare Support",
-        category: "Healthcare",
-        description: "How can technology improve healthcare in rural areas?"
-    }
-];
+// Supabase connection
+const { createClient } = require("@supabase/supabase-js");
 
+const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_KEY
+);
+
+// Home
 app.get("/", (req, res) => {
     res.json({
-        message: "🚀 SolveSphere Backend is running!",
+        message: "🚀 SolveSphere Backend + Database is running!",
         status: "success"
     });
 });
 
-app.get("/api/challenges", (req, res) => {
-    res.json(challenges);
+// Get challenges
+app.get("/api/challenges", async (req, res) => {
+    const { data, error } = await supabase
+        .from("challenges")
+        .select("*")
+        .order("id", { ascending: true });
+
+    if (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
+
+    res.json(data);
 });
 
-app.post("/api/challenges", (req, res) => {
+// Add challenge
+app.post("/api/challenges", async (req, res) => {
     const { title, category, description } = req.body;
 
     if (!title || !category || !description) {
@@ -59,19 +60,28 @@ app.post("/api/challenges", (req, res) => {
         });
     }
 
-    const challenge = {
-        id: challenges.length + 1,
-        title,
-        category,
-        description
-    };
+    const { data, error } = await supabase
+        .from("challenges")
+        .insert([
+            {
+                title: title,
+                category: category,
+                description: description
+            }
+        ])
+        .select();
 
-    challenges.push(challenge);
+    if (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        });
+    }
 
     res.status(201).json({
         success: true,
         message: "Challenge submitted successfully!",
-        challenge
+        challenge: data[0]
     });
 });
 
