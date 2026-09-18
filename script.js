@@ -75,7 +75,7 @@ async function submitChallenge() {
     const description = document.getElementById("challengeDescription").value;
     const category = document.getElementById("challengeCategory").value;
     // Automatic AI-like category suggestion
-let aiCategory = aicategory;
+let aiCategory = category;
 
 const text = (title + " " + description).toLowerCase();
 
