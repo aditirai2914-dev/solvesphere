@@ -420,3 +420,22 @@ async function loadChallenges() {
 }
 
 document.addEventListener("DOMContentLoaded", loadChallenges);
+async function updateChallengeCount() {
+    try {
+        const response = await fetch(
+            "https://solvesphere-pgw2.onrender.com/api/challenges"
+        );
+
+        const challenges = await response.json();
+
+        const count = document.getElementById("totalChallenges");
+
+        if (count) {
+            count.innerText = challenges.length;
+        }
+    } catch (error) {
+        console.error("Count error:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateChallengeCount);
