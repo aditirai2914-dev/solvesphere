@@ -74,6 +74,26 @@ async function submitChallenge() {
     const title = document.getElementById("challengeTitle").value;
     const description = document.getElementById("challengeDescription").value;
     const category = document.getElementById("challengeCategory").value;
+    // Automatic AI-like category suggestion
+let aiCategory = aicategory;
+
+const text = (title + " " + description).toLowerCase();
+
+if (text.includes("water") || text.includes("river") || text.includes("pollution")) {
+    aiCategory = "Environment";
+} 
+else if (text.includes("hospital") || text.includes("health") || text.includes("disease")) {
+    aiCategory = "Healthcare";
+} 
+else if (text.includes("education") || text.includes("school") || text.includes("student")) {
+    aiCategory = "Education";
+} 
+else if (text.includes("traffic") || text.includes("road") || text.includes("transport")) {
+    aiCategory = "Transport";
+} 
+else if (text.includes("farmer") || text.includes("agriculture") || text.includes("crop")) {
+    aiCategory = "Agriculture";
+}
     const result = document.getElementById("result");
 
     if (title === "" || description === "" || category === "") {
