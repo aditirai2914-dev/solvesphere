@@ -125,7 +125,8 @@ else if (text.includes("farmer") || text.includes("agriculture") || text.include
             result.innerHTML =
                 "✅ Challenge submitted successfully!<br><br>" +
                 "🤖 AI Categorization: Completed<br>" +
-                "🎯 Smart Matching: Finding suitable teams...";
+                "🎯 Smart Matching: Suitable teams found!<br>" +
+"👥 Recommended Team: " + aiCategory + " Solutions Team";
         } else {
             result.innerHTML = "❌ " + data.message;
         }
