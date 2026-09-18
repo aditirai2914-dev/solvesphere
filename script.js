@@ -70,7 +70,7 @@ function showDetails(name) {
     }
 }
 
-function submitChallenge() {
+async function submitChallenge() {
     const title = document.getElementById("challengeTitle").value;
     const description = document.getElementById("challengeDescription").value;
     const category = document.getElementById("challengeCategory").value;
@@ -81,10 +81,40 @@ function submitChallenge() {
         return;
     }
 
-    result.innerHTML =
-        "✅ Challenge submitted successfully!<br><br>" +
-        "🤖 AI Categorization: Completed<br>" +
-        "🎯 Smart Matching: Finding suitable teams...";
+    result.innerHTML = "⏳ Submitting challenge...";
+
+    try {
+        const response = await fetch(
+            "https://solvesphere-pgw2.onrender.com/api/challenges",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: title,
+                    description: description,
+                    category: category
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (data.success) {
+            result.innerHTML =
+                "✅ Challenge submitted successfully!<br><br>" +
+                "🤖 AI Categorization: Completed<br>" +
+                "🎯 Smart Matching: Finding suitable teams...";
+        } else {
+            result.innerHTML = "❌ " + data.message;
+        }
+
+    } catch (error) {
+        result.innerHTML =
+            "❌ Could not connect to backend. Please try again.";
+        console.error(error);
+    }
 }
 
 function submitSolution() {
@@ -300,3 +330,72 @@ window.addEventListener("DOMContentLoaded", function() {
 
     displayNotifications();
 });
+function filterChallenges() {
+    const searchBox = document.getElementById("challengeSearch");
+    const filterBox = document.getElementById("challengeFilter");
+
+    const searchText = searchBox.value.toLowerCase().trim();
+    const selectedCategory = filterBox.value.toLowerCase();
+
+    const challenges = document.querySelectorAll(
+        ".challenge, .recent-challenge"
+    );
+
+    challenges.forEach(function(challenge) {
+
+        const challengeText = challenge.innerText.toLowerCase();
+        const category = challenge.getAttribute("data-category");
+
+        const searchMatch = challengeText.includes(searchText);
+
+        const categoryMatch =
+            selectedCategory === "all" ||
+            category === selectedCategory;
+
+        if (searchMatch && categoryMatch) {
+            challenge.style.display = "";
+        } else {
+            challenge.style.display = "none";
+        }
+    });
+}
+async function loadChallenges() {
+    try {
+        const response = await fetch(
+            "https://solvesphere-pgw2.onrender.com/api/challenges"
+        );
+
+        const challenges = await response.json();
+
+        console.log("Challenges from database:", challenges);
+
+        // Agar page par challenges container hai
+        const container = document.getElementById("challengesContainer");
+
+        if (!container) {
+            console.log("Challenges container not found.");
+            return;
+        }
+
+        container.innerHTML = "";
+
+        challenges.forEach((challenge) => {
+            const card = document.createElement("div");
+
+            card.className = "challenge-card";
+
+            card.innerHTML = `
+                <h3>${challenge.title}</h3>
+                <p><strong>Category:</strong> ${challenge.category}</p>
+                <p>${challenge.description}</p>
+            `;
+
+            container.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Error loading challenges:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadChallenges);
