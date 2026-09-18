@@ -97,7 +97,8 @@
 
         <div class="challenge-container">
 
-            <div class="challenge">
+            <div class="challenge"
+            data-category="environment">
                 <span>Environment</span>
                 <h3>Waste Management in Cities</h3>
                 <p>How can technology improve waste collection and recycling?</p>
@@ -106,7 +107,8 @@
                 </button>
             </div>
 
-            <div class="challenge">
+            <div class="challenge"
+            data-category="education">
                 <span>Education</span>
                 <h3>Digital Learning Access</h3>
                 <p>Improving access to quality digital education for students.</p>
@@ -115,7 +117,8 @@
                 </button>
             </div>
 
-            <div class="challenge">
+            <div class="challenge"
+            data-category="healthcare">
                 <span>Healthcare</span>
                 <h3>Rural Healthcare Support</h3>
                 <p>Connecting rural communities with better healthcare resources.</p>
@@ -222,15 +225,84 @@
     </div>
 
     <div class="recent-box">
+<div class="challenge-tools">
 
-        <h3>Recent Challenges</h3>
+    <input
+        type="text"
+        id="challengeSearch"
+        placeholder="🔎 Search challenges..."
+        onkeyup="filterChallenges()"
+    >
 
+    <select id="challengeFilter" onchange="filterChallenges()">
+        <option value="all">All Categories</option>
+        <option value="environment">Environment</option>
+        <option value="education">Education</option>
+        <option value="healthcare">Healthcare</option>
+    </select>
+<div class="recent-box">
+
+    <h3>Recent Challenges</h3>
+    <div id="challengesContainer"></div>
+
+    <div class="recent-challenge" data-category="environment">
         <p>🌱 Waste Management in Cities</p>
-        <p>📚 Digital Learning Access</p>
-        <p>🏥 Rural Healthcare Support</p>
-
     </div>
 
+    <div class="recent-challenge" data-category="digital learning">
+        <p>📚 Digital Learning Access</p>
+    </div>
+
+    <div class="recent-challenge" data-category="healthcare">
+        <p>🏥 Rural Healthcare Support</p>
+    </div>
+
+</div>
+<div class="progress-box">
+    <h3>📊 Challenge Progress</h3>
+
+    <div class="progress-item">
+        <div class="progress-header">
+            <span>🌱 Waste Management</span>
+            <strong>65%</strong>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 65%;"></div>
+        </div>
+
+        <p>🤝 Team is working on the solution</p>
+    </div>
+
+    <div class="progress-item">
+        <div class="progress-header">
+            <span>📚 Digital Learning</span>
+            <strong>40%</strong>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 40%;"></div>
+        </div>
+
+        <p>💡 Solution development in progress</p>
+    </div>
+
+    <div class="progress-item">
+        <div class="progress-header">
+            <span>🏥 Rural Healthcare</span>
+            <strong>80%</strong>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 80%;"></div>
+        </div>
+
+        <p>🔍 Final evaluation stage</p>
+    </div>
+</div>
+
+
+</div>
 </section>
 <section class="solution-section" id="solutions">
 
@@ -393,6 +465,8 @@
 
 </body>
 </html>
+
+
 
 
 
