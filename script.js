@@ -52,7 +52,14 @@ async function signupUser(email, password) {
     alert("Account created successfully! Please check your email if confirmation is required.");
 }
 function showChallengeForm() {
-    const title = prompt("Enter your challenge title:");
+    const form = document.getElementById("submit");
+
+    if (form) {
+        form.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
 
     if (title) {
         const description = prompt("Describe your problem:");
