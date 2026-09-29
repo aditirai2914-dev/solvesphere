@@ -493,6 +493,13 @@ window.showLogin = async function () {
         }
 
         alert("✅ Login successful! Welcome to SolveSphere.");
+        const dashboard = document.getElementById("dashboard");
+
+if (dashboard) {
+    dashboard.scrollIntoView({
+        behavior: "smooth"
+    });
+}
 
     } else if (choice.toUpperCase() === "SIGNUP") {
 
@@ -507,6 +514,13 @@ window.showLogin = async function () {
         }
 
         alert("✅ Account created successfully! Please check your email.");
+        const dashboard = document.getElementById("dashboard");
+
+if (dashboard) {
+    dashboard.scrollIntoView({
+        behavior: "smooth"
+    });
+}
 
     } else {
 
