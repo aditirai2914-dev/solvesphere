@@ -355,7 +355,7 @@
             <option>Organization</option>
         </select>
 
-        <button onclick="loginUser()">
+        <button onclick="loginForm()">
             Login / Register
         </button>
 
@@ -462,133 +462,7 @@
     </div>
 
 </section>
-    
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js?v=3"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    // LOGIN BUTTON
-window.showLogin = async function () {
-    const choice = prompt("Type LOGIN or SIGNUP:");
-
-    if (!choice) return;
-
-    const email = prompt("Enter your email:");
-    if (!email) return;
-
-    const password = prompt("Enter your password:");
-    if (!password) return;
-
-    if (choice.toUpperCase() === "LOGIN") {
-
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
-
-        if (error) {
-            alert("Login failed: " + error.message);
-            return;
-        }
-
-        alert("✅ Login successful! Welcome to SolveSphere.");
-        const dashboard = document.getElementById("dashboard");
-
-if (dashboard) {
-    dashboard.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-    } else if (choice.toUpperCase() === "SIGNUP") {
-
-        const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password: password
-        });
-
-        if (error) {
-            alert("Sign up failed: " + error.message);
-            return;
-        }
-
-        alert("✅ Account created successfully! Please check your email.");
-        const dashboard = document.getElementById("dashboard");
-
-if (dashboard) {
-    dashboard.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-    } else {
-
-        alert("Please type LOGIN or SIGNUP.");
-
-    }
-};
-
-
-    // SUBMIT CHALLENGE BUTTON
-    window.submitChallenge = function () {
-        const title = document.getElementById("challengeTitle")?.value;
-        const description = document.getElementById("challengeDescription")?.value;
-
-        if (!title || !description) {
-            alert("Please enter challenge title and description.");
-            return;
-        }
-
-        const result = document.getElementById("result");
-
-        if (result) {
-            result.innerHTML =
-                "✅ Challenge submitted successfully!<br>AI Categorization: Completed";
-        } else {
-            alert("✅ Challenge submitted successfully!\nAI Categorization: Completed");
-        }
-    };
-
-
-    // CHALLENGE FORM
-
-
-
-    // GENERIC BUTTON CLICK SUPPORT
-    document.querySelectorAll("button").forEach(function(button) {
-
-        button.addEventListener("click", function() {
-
-            const text = button.innerText.trim().toLowerCase();
-
-            if (text.includes("find an expert")) {
-                alert("Find an Expert feature is ready!");
-            }
-
-            else if (text.includes("join a team")) {
-                alert("Join a Team feature is ready!");
-            }
-
-            else if (text.includes("my team")) {
-                alert("My Team section is opening!");
-            }
-
-            else if (text.includes("view challenge") ||
-                     text.includes("view details")) {
-                alert("Challenge details are opening!");
-            }
-
-            else if (text.includes("notification")) {
-                alert("No new notifications.");
-            }
-
-        });
-
-    });
-
-});
-</script>
 </body>
 </html>
 
