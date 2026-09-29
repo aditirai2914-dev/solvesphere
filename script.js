@@ -1,4 +1,5 @@
- const supabaseUrl = "https://ccygpqecumonheiwwzql.supabase.co/rest/v1/";
+alert("JavaScript loaded successfully!");
+ const supabaseUrl = "https://ccygpqecumonheiwwzql.supabase.co";
 const supabaseKey = "sb_publishable_LO1Bd5HqVhqclu6q3cZIvQ__WESL30U";
 
 const supabase = window.supabase.createClient(
