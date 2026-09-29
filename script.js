@@ -1,7 +1,55 @@
-function showLogin() {
-    alert("Login / Sign Up feature coming soon!");
-}
+ const supabaseUrl = "https://ccygpqecumonheiwwzql.supabase.co/rest/v1/";
+const supabaseKey = "sb_publishable_LO1Bd5HqVhqclu6q3cZIvQ__WESL30U";
 
+const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+function showLogin() {
+    const choice = prompt("Type LOGIN to login or SIGNUP to create a new account:");
+
+    if (!choice) return;
+
+    const email = prompt("Enter your email:");
+    if (!email) return;
+
+    const password = prompt("Enter your password:");
+    if (!password) return;
+
+    if (choice.toUpperCase() === "SIGNUP") {
+        signupUser(email, password);
+    } else if (choice.toUpperCase() === "LOGIN") {
+        loginUser(email, password);
+    } else {
+        alert("Please type LOGIN or SIGNUP.");
+    }
+}
+async function loginUser(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password
+    });
+
+    if (error) {
+        alert("Login failed: " + error.message);
+        return;
+    }
+
+    alert("Login successful! Welcome to SolveSphere.");
+}
+async function signupUser(email, password) {
+    const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password
+    });
+
+    if (error) {
+        alert("Sign Up failed: " + error.message);
+        return;
+    }
+
+    alert("Account created successfully! Please check your email if confirmation is required.");
+}
 function showChallengeForm() {
     const title = prompt("Enter your challenge title:");
 
