@@ -1,4 +1,4 @@
-alert("JavaScript loaded successfully!");
+
  const supabaseUrl = "https://ccygpqecumonheiwwzql.supabase.co";
 const supabaseKey = "sb_publishable_LO1Bd5HqVhqclu6q3cZIvQ__WESL30U";
 
@@ -203,7 +203,7 @@ function submitSolution() {
         "🤝 Your solution is now available for collaboration.";
 }
 
-function loginUser() {
+function loginForm () {
     const name = document.getElementById("userName").value;
     const email = document.getElementById("userEmail").value;
     const role = document.getElementById("userRole").value;
