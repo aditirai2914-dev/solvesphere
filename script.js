@@ -171,21 +171,51 @@ function submitSolution() {
         "🤝 Your solution is now available for collaboration.";
 }
 
-function loginForm () {
-    const name = document.getElementById("userName").value;
-    const email = document.getElementById("userEmail").value;
-    const role = document.getElementById("userRole").value;
-    const result = document.getElementById("loginResult");
+function loginForm() {
+    const userNameInput = document.getElementById('userName');
+    const userEmailInput = document.getElementById('userEmail');
+    const userRoleInput = document.getElementById('userRole');
+    const loginResult = document.getElementById('loginResult');
 
-    if (name === "" || email === "" || role === "") {
-        result.innerHTML = "⚠️ Please fill all the fields.";
+    const name = userNameInput ? userNameInput.value.trim() : '';
+    const email = userEmailInput ? userEmailInput.value.trim() : '';
+    const role = userRoleInput ? userRoleInput.value : '';
+
+    // Check if fields are empty
+    if (!name || !email || !role) {
+        if (loginResult) {
+            loginResult.innerHTML = `
+                <div style="background: #ffebe9; color: #cc0000; padding: 10px; border-radius: 5px; margin-top: 10px; border-left: 4px solid #cc0000;">
+                    ⚠️ Kripya saari details (Name, Email, Role) bharein!
+                </div>
+            `;
+        } else {
+            alert("Kripya saari details (Name, Email, Role) bharein!");
+        }
         return;
     }
 
-    result.innerHTML =
-        "✅ Welcome, " + name + "!<br>" +
-        "👤 Role: " + role + "<br>" +
-        "🎯 You can now explore challenges and collaborate.";
+    // Success alert and UI update (Bina Supabase Auth ke direct success)
+    alert("Welcome " + name + "! Login Successful as " + role);
+
+    if (loginResult) {
+        loginResult.innerHTML = `
+            <div style="background: #eefbf4; color: #008000; padding: 12px; border-radius: 5px; margin-top: 10px; border-left: 4px solid #00a86b;">
+                🎉 Swagat hai, <strong>${name}</strong>! Aap successfully login ho gaye hain.
+            </div>
+        `;
+    }
+
+    // Nav button update
+    const navBtn = document.querySelector('nav button');
+    if (navBtn) {
+        navBtn.innerText = `👤 ${name}`;
+    }
+
+    // Clear inputs
+    if (userNameInput) userNameInput.value = '';
+    if (userEmailInput) userEmailInput.value = '';
+    if (userRoleInput) userRoleInput.value = '';
 }
 
 function joinTeam() {
