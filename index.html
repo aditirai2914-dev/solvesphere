@@ -98,8 +98,7 @@
 
         <div class="challenge-container">
 
-            <div class="challenge"
-            data-category="environment">
+            <div class="challenge" data-category="environment">
                 <span>Environment</span>
                 <h3>Waste Management in Cities</h3>
                 <p>How can technology improve waste collection and recycling?</p>
@@ -108,8 +107,7 @@
                 </button>
             </div>
 
-            <div class="challenge"
-            data-category="education">
+            <div class="challenge" data-category="education">
                 <span>Education</span>
                 <h3>Digital Learning Access</h3>
                 <p>Improving access to quality digital education for students.</p>
@@ -118,8 +116,7 @@
                 </button>
             </div>
 
-            <div class="challenge"
-            data-category="healthcare">
+            <div class="challenge" data-category="healthcare">
                 <span>Healthcare</span>
                 <h3>Rural Healthcare Support</h3>
                 <p>Connecting rural communities with better healthcare resources.</p>
@@ -129,400 +126,401 @@
             </div>
 
         </div>
-<section id="collaboration" class="collaboration-section">
 
-    <h2>🤝 Collaboration</h2>
-    <p>Connect with students and experts to work together on real-world challenges.</p>
+        <section id="collaboration" class="collaboration-section">
 
-    <div class="collaboration-box">
-        <h3 id="selectedChallenge">Selected Challenge</h3>
-        <button type="button" onclick="joinTeam()">🤝 Join a Team</button>
-        <button type="button" onclick="findExpert()">👨‍🏫 Find an Expert</button>
-    </div>
+            <h2>🤝 Collaboration</h2>
 
-    <!-- Active Teams List -->
-    <div class="team-list-container" style="margin-top: 30px;">
-        <h3>👥 Available Teams to Join</h3>
-        <div class="team-grid" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
-            <div class="team-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
-                <h4>Team Eco Innovators</h4>
-                <p><strong>Lead:</strong> Rahul Sharma</p>
-                <p><strong>Members Needed:</strong> Frontend Developer, AI Specialist</p>
-                <button onclick="joinSpecificTeam('Eco Innovators')" style="background-color: #0066cc; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Join This Team</button>
-            </div>
-            
-            <div class="team-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
-                <h4>Team HealthTech</h4>
-                <p><strong>Lead:</strong> Priya Singh</p>
-                <p><strong>Members Needed:</strong> Data Analyst, UI/UX Designer</p>
-                <button onclick="joinSpecificTeam('HealthTech')" style="background-color: #0066cc; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Join This Team</button>
-            </div>
-        </div>
-    </div>
+            <p>
+                Connect with students and experts to work together on real-world challenges.
+            </p>
 
-    <!-- Mentors / Experts List -->
-    <div class="expert-list-container" style="margin-top: 30px;">
-        <h3>👨‍🏫 Industry Experts & Mentors</h3>
-        <div class="expert-grid" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
-            <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
-                <h4>Dr. Amit Verma</h4>
-                <p><strong>Domain:</strong> AI & Data Science Specialist</p>
-                <p><strong>Experience:</strong> 10+ Years</p>
-                <button onclick="connectExpert('Dr. Amit Verma')" style="background-color: #00a86b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Connect Expert</button>
+            <div class="collaboration-box">
+                <h3 id="selectedChallenge">Selected Challenge: All Challenges</h3>
+                <button type="button" onclick="joinTeam()">🤝 Join a Team</button>
+                <button type="button" onclick="findExpert()">👨‍🏫 Find an Expert</button>
             </div>
 
-            <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
-                <h4>Prof. Sunita Rao</h4>
-                <p><strong>Domain:</strong> Environmental Engineering</p>
-                <p><strong>Experience:</strong> 8+ Years</p>
-                <button onclick="connectExpert('Prof. Sunita Rao')" style="background-color: #00a86b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Connect Expert</button>
+            <div id="collaborationResult"></div>
+
+            <!-- 👥 Active Student Teams Section -->
+            <div class="team-list-container" style="margin-top: 35px;">
+                <h3>👥 Active Student Teams Looking for Members</h3>
+                <div class="team-grid" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+                    
+                    <div class="team-card" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; flex: 1; min-width: 260px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h4>Team Eco Innovators</h4>
+                        <p><strong>Lead:</strong> Rahul Sharma</p>
+                        <p><strong>Members:</strong> Ananya Verma, Rohan Gupta</p>
+                        <p><strong>Looking For:</strong> AI / Machine Learning Developer</p>
+                        <button onclick="joinSpecificTeam('Eco Innovators')" style="background-color: #0066cc; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Join Eco Innovators</button>
+                    </div>
+
+                    <div class="team-card" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; flex: 1; min-width: 260px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h4>Team EduAccess Squad</h4>
+                        <p><strong>Lead:</strong> Priya Singh</p>
+                        <p><strong>Members:</strong> Vikram Patel, Neha Joshi</p>
+                        <p><strong>Looking For:</strong> Flutter / Mobile App Developer</p>
+                        <button onclick="joinSpecificTeam('EduAccess Squad')" style="background-color: #0066cc; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Join EduAccess Squad</button>
+                    </div>
+
+                    <div class="team-card" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; flex: 1; min-width: 260px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h4>Team HealthTech Care</h4>
+                        <p><strong>Lead:</strong> Amit Kumar</p>
+                        <p><strong>Members:</strong> Pooja Hegde</p>
+                        <p><strong>Looking For:</strong> Full-Stack Web Developer</p>
+                        <button onclick="joinSpecificTeam('HealthTech Care')" style="background-color: #0066cc; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Join HealthTech Care</button>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div id="collaborationResult" style="margin-top: 20px; font-weight: bold;"></div>
+            <!-- 👨‍🏫 Industry Experts Section -->
+            <div class="expert-list-container" style="margin-top: 40px;">
+                <h3>👨‍🏫 Connect with Domain Experts & Mentors</h3>
+                <div class="expert-grid" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+                    
+                    <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; flex: 1; min-width: 260px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h4>Dr. Rajesh V. Sharma</h4>
+                        <p><strong>Specialization:</strong> AI & Smart Systems Specialist</p>
+                        <p><strong>Experience:</strong> 12+ Years</p>
+                        <button onclick="connectExpert('Dr. Rajesh V. Sharma')" style="background-color: #00a86b; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Connect with Dr. Rajesh</button>
+                    </div>
 
-</section>
+                    <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; flex: 1; min-width: 260px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h4>Prof. Sunita Deshmukh</h4>
+                        <p><strong>Specialization:</strong> Waste & Green Tech Expert</p>
+                        <p><strong>Experience:</strong> 10+ Years</p>
+                        <button onclick="connectExpert('Prof. Sunita Deshmukh')" style="background-color: #00a86b; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Connect with Prof. Sunita</button>
+                    </div>
 
-    <h2>🤝 Collaboration</h2>
+                    <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; flex: 1; min-width: 260px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                        <h4>Vikramaditya Roy</h4>
+                        <p><strong>Specialization:</strong> Cloud Architecture & EdTech</p>
+                        <p><strong>Experience:</strong> 8+ Years</p>
+                        <button onclick="connectExpert('Vikramaditya Roy')" style="background-color: #00a86b; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px;">Connect with Vikramaditya</button>
+                    </div>
 
-    <p>
-        Connect with students and experts to work together on real-world challenges.
-    </p>
+                </div>
+            </div>
 
-    <div class="collaboration-box">
-
-        <h3 id="selectedChallenge">Selected Challenge</h3>
-
-        <button type="button" onclick="joinTeam()">🤝 Join a Team</button>
-
-        <button type="button" onclick="findExpert()">👨‍🏫 Find an Expert</button>
-
-    </div>
-
-    <div id="collaborationResult"></div>
-
-</section>
+        </section>
     </section>
 
-<section class="dashboard" id="dashboard">
+    <section class="dashboard" id="dashboard">
 
-    <h2>📊 SolveSphere Dashboard</h2>
- 
-    <p>Track challenges, teams, experts and solutions</p>
+        <h2>📊 SolveSphere Dashboard</h2>
+     
+        <p>Track challenges, teams, experts and solutions</p>
 
-    <div class="stats">
+        <div class="stats">
 
-        <div class="stat-card">
-            <h3 id="totalChallenges">0</h3>
-            <p>Total Challenges</p>
+            <div class="stat-card">
+                <h3 id="totalChallenges">0</h3>
+                <p>Total Challenges</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>12</h3>
+                <p>Student Teams</p>
+            </div>
+
+            <div id="dashboardTeam" class="dashboard-team">
+                <h3>👥 My Team</h3>
+                <p>No team joined yet.</p>
+            </div>
+
+            <div class="matching-box">
+                <h3>🤖 AI Smart Matching</h3>
+                <p>Find the most suitable team and expert for your challenge.</p>
+
+                <button onclick="smartMatch()">🔍 Find Best Match</button>
+
+                <div id="matchResult"></div>
+            </div>
+
+            <div class="activity-box">
+
+                <h3>📈 My Activity</h3>
+
+                <div class="activity-item">
+                    <span>📝 Challenges Submitted</span>
+                    <strong>1</strong>
+                </div>
+
+                <div class="activity-item">
+                    <span>💡 Solutions Submitted</span>
+                    <strong>1</strong>
+                </div>
+
+                <div class="activity-item">
+                    <span>🤝 Teams Joined</span>
+                    <strong>1</strong>
+                </div>
+
+                <div class="notification-box">
+                    <h3>🔔 Notifications</h3>
+
+                    <div id="notifications">
+                        <p>📩 No new notifications.</p>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span>👨‍🏫 Experts Connected</span>
+                    <strong>1</strong>
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+                <h3>8</h3>
+                <p>Experts</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>15</h3>
+                <p>Solutions</p>
+            </div>
+
         </div>
 
-        <div class="stat-card">
-            <h3>12</h3>
-            <p>Student Teams</p>
+        <div class="recent-box">
+
+            <div class="challenge-tools">
+
+                <input
+                    type="text"
+                    id="challengeSearch"
+                    placeholder="🔎 Search challenges..."
+                    onkeyup="filterChallenges()"
+                >
+
+                <select id="challengeFilter" onchange="filterChallenges()">
+                    <option value="all">All Categories</option>
+                    <option value="environment">Environment</option>
+                    <option value="education">Education</option>
+                    <option value="healthcare">Healthcare</option>
+                </select>
+
+                <div class="recent-box">
+
+                    <h3>Recent Challenges</h3>
+                    <div id="challengesContainer"></div>
+
+                    <div class="recent-challenge" data-category="environment">
+                        <p>🌱 Waste Management in Cities</p>
+                    </div>
+
+                    <div class="recent-challenge" data-category="digital learning">
+                        <p>📚 Digital Learning Access</p>
+                    </div>
+
+                    <div class="recent-challenge" data-category="healthcare">
+                        <p>🏥 Rural Healthcare Support</p>
+                    </div>
+
+                </div>
+
+                <div class="progress-box">
+                    <h3>📊 Challenge Progress</h3>
+
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>🌱 Waste Management</span>
+                            <strong>65%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+
+                        <p>🤝 Team is working on the solution</p>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>📚 Digital Learning</span>
+                            <strong>40%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+
+                        <p>💡 Solution development in progress</p>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span>🏥 Rural Healthcare</span>
+                            <strong>80%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+
+                        <p>🔍 Final evaluation stage</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
-<div id="dashboardTeam" class="dashboard-team">
-    <h3>👥 My Team</h3>
-    <p>No team joined yet.</p>
-</div>
-<div class="matching-box">
-    <h3>🤖 AI Smart Matching</h3>
-    <p>Find the most suitable team and expert for your challenge.</p>
+    </section>
 
-    <button onclick="smartMatch()">🔍 Find Best Match</button>
+    <section class="solution-section" id="solutions">
 
-    <div id="matchResult"></div>
-</div>
-<div class="activity-box">
+        <h2>💡 Submit a Solution</h2>
 
-    <h3>📈 My Activity</h3>
+        <p>Have an idea? Share your solution with the community.</p>
 
-    <div class="activity-item">
-        <span>📝 Challenges Submitted</span>
-        <strong>1</strong>
-    </div>
+        <div class="form-box">
 
-    <div class="activity-item">
-        <span>💡 Solutions Submitted</span>
-        <strong>1</strong>
-    </div>
+            <input type="text"
+                   id="solutionTitle"
+                   placeholder="Solution Title">
 
-    <div class="activity-item">
-        <span>🤝 Teams Joined</span>
-        <strong>1</strong>
-    </div>
-    <div class="notification-box">
-    <h3>🔔 Notifications</h3>
+            <input type="text"
+                   id="teamName"
+                   placeholder="Team / Organization Name">
 
-    <div id="notifications">
-        <p>📩 No new notifications.</p>
-    </div>
-</div>
+            <textarea id="solutionDescription"
+                      placeholder="Describe your solution..."></textarea>
 
-    <div class="activity-item">
-        <span>👨‍🏫 Experts Connected</span>
-        <strong>1</strong>
-    </div>
+            <button onclick="submitSolution()">
+                🚀 Submit Solution
+            </button>
 
-</div>
-        <div class="stat-card">
-            <h3>8</h3>
-            <p>Experts</p>
+            <div id="solutionResult"></div>
+
         </div>
 
-        <div class="stat-card">
-            <h3>15</h3>
-            <p>Solutions</p>
-        </div>
+    </section>
 
-    </div>
+    <section class="login-section" id="login">
 
-    <div class="recent-box">
-<div class="challenge-tools">
+        <h2>🔐 Join SolveSphere</h2>
+        <p>Connect with students, experts and organizations.</p>
 
-    <input
-        type="text"
-        id="challengeSearch"
-        placeholder="🔎 Search challenges..."
-        onkeyup="filterChallenges()"
-    >
-
-    <select id="challengeFilter" onchange="filterChallenges()">
-        <option value="all">All Categories</option>
-        <option value="environment">Environment</option>
-        <option value="education">Education</option>
-        <option value="healthcare">Healthcare</option>
+        <div class="form-box">
+    <input type="text" id="userName" placeholder="Enter your name">
+    <input type="email" id="userEmail" placeholder="Enter your email">
+    <select id="userRole">
+        <option value="">Select your role</option>
+        <option value="Student">Student</option>
+        <option value="Expert">Expert</option>
+        <option value="Organization">Organization</option>
     </select>
-<div class="recent-box">
 
-    <h3>Recent Challenges</h3>
-    <div id="challengesContainer"></div>
-
-    <div class="recent-challenge" data-category="environment">
-        <p>🌱 Waste Management in Cities</p>
-    </div>
-
-    <div class="recent-challenge" data-category="digital learning">
-        <p>📚 Digital Learning Access</p>
-    </div>
-
-    <div class="recent-challenge" data-category="healthcare">
-        <p>🏥 Rural Healthcare Support</p>
-    </div>
-
-</div>
-<div class="progress-box">
-    <h3>📊 Challenge Progress</h3>
-
-    <div class="progress-item">
-        <div class="progress-header">
-            <span>🌱 Waste Management</span>
-            <strong>65%</strong>
-        </div>
-
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 65%;"></div>
-        </div>
-
-        <p>🤝 Team is working on the solution</p>
-    </div>
-
-    <div class="progress-item">
-        <div class="progress-header">
-            <span>📚 Digital Learning</span>
-            <strong>40%</strong>
-        </div>
-
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 40%;"></div>
-        </div>
-
-        <p>💡 Solution development in progress</p>
-    </div>
-
-    <div class="progress-item">
-        <div class="progress-header">
-            <span>🏥 Rural Healthcare</span>
-            <strong>80%</strong>
-        </div>
-
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: 80%;"></div>
-        </div>
-
-        <p>🔍 Final evaluation stage</p>
-    </div>
+    <button type="button" onclick="loginForm()">Login / Register</button>
+    <div id="loginResult"></div>
 </div>
 
+    </section>
 
-</div>
-</section>
-<section class="solution-section" id="solutions">
+    <section class="submit-section" id="submit">
 
-    <h2>💡 Submit a Solution</h2>
+        <h2>Raise a Challenge</h2>
 
-    <p>Have an idea? Share your solution with the community.</p>
+        <p>
+            Tell us about a real-world problem that needs a solution.
+        </p>
 
-    <div class="form-box">
+        <div class="form-box">
 
-        <input type="text"
-               id="solutionTitle"
-               placeholder="Solution Title">
+            <input
+                type="text"
+                id="challengeTitle"
+                placeholder="Challenge Title"
+            >
 
-        <input type="text"
-               id="teamName"
-               placeholder="Team / Organization Name">
+            <textarea
+                id="challengeDescription"
+                placeholder="Describe the problem..."
+            ></textarea>
 
-        <textarea id="solutionDescription"
-                  placeholder="Describe your solution..."></textarea>
+            <select id="challengeCategory">
+                <option value="">Select Category</option>
+                <option>Environment</option>
+                <option>Education</option>
+                <option>Healthcare</option>
+                <option>Transportation</option>
+                <option>Technology</option>
+                <option>Other</option>
+            </select>
 
-        <button onclick="submitSolution()">
-            🚀 Submit Solution
-        </button>
+            <button class="primary" onclick="submitChallenge()">
+                Submit Challenge 
+            </button>
 
-        <div id="solutionResult"></div>
+            <div id="result"></div>
 
-    </div>
+        </div>
 
-</section>
-<section class="login-section" id="login">
+    </section>
 
-    <h2>🔐 Join SolveSphere</h2>
-    <p>Connect with students, experts and organizations.</p>
-
-    <div class="form-box">
-
-        <input type="text"
-               id="userName"
-               placeholder="Enter your name">
-
-        <input type="email"
-               id="userEmail"
-               placeholder="Enter your email">
-
-        <select id="userRole">
-            <option value="">Select your role</option>
-            <option>Student</option>
-            <option>Expert</option>
-            <option>Organization</option>
-        </select>
-
-        <button onclick="loginForm()">
-            Login / Register
-        </button>
-
-        <div id="loginResult"></div>
-
-    </div>
-
-</section>
     <footer>
         <h2>🌐 SolveSphere</h2>
         <p>Collaborate. Innovate. Solve.</p>
         <p>SIH 2026 • Problem Statement SIH26043</p>
+
         <section class="how-section" id="how-it-works">
 
-    <h2>🚀 How SolveSphere Works</h2>
+            <h2>🚀 How SolveSphere Works</h2>
 
-    <p class="how-subtitle">
-        From identifying a problem to creating a solution — everything in one platform.
-    </p>
-
-    <div class="steps-container">
-
-        <div class="step-card">
-            <div class="step-number">1</div>
-            <h3>📝 Raise a Challenge</h3>
-            <p>
-                Universities and organizations submit real-world societal problems.
+            <p class="how-subtitle">
+                From identifying a problem to creating a solution — everything in one platform.
             </p>
-        </div>
 
-        <div class="step-card">
-            <div class="step-number">2</div>
-            <h3>🤖 AI Categorization</h3>
-            <p>
-                The platform categorizes challenges and identifies suitable skills.
-            </p>
-        </div>
+            <div class="steps-container">
 
-        <div class="step-card">
-            <div class="step-number">3</div>
-            <h3>🎯 Smart Matching</h3>
-            <p>
-                Students, teams and experts are matched with relevant challenges.
-            </p>
-        </div>
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>📝 Raise a Challenge</h3>
+                    <p>
+                        Universities and organizations submit real-world societal problems.
+                    </p>
+                </div>
 
-        <div class="step-card">
-            <div class="step-number">4</div>
-            <h3>🤝 Collaborate</h3>
-            <p>
-                Teams and experts collaborate to develop practical solutions.
-            </p>
-        </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>🤖 AI Categorization</h3>
+                    <p>
+                        The platform categorizes challenges and identifies suitable skills.
+                    </p>
+                </div>
 
-        <div class="step-card">
-            <div class="step-number">5</div>
-            <h3>💡 Submit Solution</h3>
-            <p>
-                Completed solutions are submitted and shared with the community.
-            </p>
-        </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>🎯 Smart Matching</h3>
+                    <p>
+                        Students, teams and experts are matched with relevant challenges.
+                    </p>
+                </div>
 
-    </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>🤝 Collaborate</h3>
+                    <p>
+                        Teams and experts collaborate to develop practical solutions.
+                    </p>
+                </div>
 
-</section>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>💡 Submit Solution</h3>
+                    <p>
+                        Completed solutions are submitted and shared with the community.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
     </footer>
-<section class="submit-section" id="submit">
 
-    <h2>Raise a Challenge</h2>
-
-    <p>
-        Tell us about a real-world problem that needs a solution.
-    </p>
-
-    <div class="form-box">
-
-        <input
-            type="text"
-            id="challengeTitle"
-            placeholder="Challenge Title"
-        >
-
-        <textarea
-            id="challengeDescription"
-            placeholder="Describe the problem..."
-        ></textarea>
-
-        <select id="challengeCategory">
-            <option value="">Select Category</option>
-            <option>Environment</option>
-            <option>Education</option>
-            <option>Healthcare</option>
-            <option>Transportation</option>
-            <option>Technology</option>
-            <option>Other</option>
-        </select>
-
-        <button class="primary" onclick="submitChallenge()">
-            Submit Challenge 
-        </button>
-
-        <div id="result"></div>
-
-    </div>
-
-</section>
-
-<script src="script.js?v=999"></script>
+    <script src="script.js?v=6"></script>
 </body>
 
 </html>
-
-
-
-
-
-

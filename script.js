@@ -513,58 +513,59 @@ function connectExpert(expertName) {
 let currentUser = null;
 
 // Login / Register Functionality
+
+
 function loginForm() {
-    const userNameInput = document.getElementById('userName');
-    const userEmailInput = document.getElementById('userEmail');
-    const userRoleInput = document.getElementById('userRole');
-    const loginResult = document.getElementById('loginResult');
+    const nameInput = document.getElementById('userName');
+    const emailInput = document.getElementById('userEmail');
+    const roleInput = document.getElementById('userRole');
+    const resultDiv = document.getElementById('loginResult');
 
-    const name = userNameInput ? userNameInput.value.trim() : '';
-    const email = userEmailInput ? userEmailInput.value.trim() : '';
-    const role = userRoleInput ? userRoleInput.value : '';
+    const name = nameInput ? nameInput.value.trim() : '';
+    const email = emailInput ? emailInput.value.trim() : '';
+    const role = roleInput ? roleInput.value : '';
 
-    // Validation Check
+    // Validation checks
     if (!name || !email || !role) {
-        if (loginResult) {
-            loginResult.innerHTML = `
-                <div style="background: #ffebe9; color: #cc0000; padding: 10px; border-radius: 5px; margin-top: 10px; border-left: 4px solid #cc0000;">
-                    ⚠️ Kripya saari details (Name, Email, Role) bharein!
+        if (resultDiv) {
+            resultDiv.innerHTML = `
+                <div style="background-color: #ffebe9; color: #cc0000; padding: 12px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #cc0000;">
+                    ⚠️ Kripya saari details (Name, Valid Email aur Role) bharein!
                 </div>
             `;
         }
         return;
     }
 
-    // Save User Data
-    currentUser = { name, email, role };
+    // Email basic check
+    if (!email.includes('@') || !email.includes('.')) {
+        if (resultDiv) {
+            resultDiv.innerHTML = `
+                <div style="background-color: #ffebe9; color: #cc0000; padding: 12px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #cc0000;">
+                    ⚠️ Kripya sahi Email address darj karein!
+                </div>
+            `;
+        }
+        return;
+    }
 
-    // Display Success Message
-    if (loginResult) {
-        loginResult.innerHTML = `
-            <div style="background: #eefbf4; color: #008000; padding: 12px; border-radius: 5px; margin-top: 10px; border-left: 4px solid #00a86b;">
-                🎉 Swagat hai, <strong>${name}</strong>! Aapne as a <strong>${role}</strong> successfully login kar liya hai.
+    // Success login
+    if (resultDiv) {
+        resultDiv.innerHTML = `
+            <div style="background-color: #eefbf4; color: #008000; padding: 12px; border-radius: 6px; margin-top: 10px; border-left: 4px solid #00a86b;">
+                🎉 Swagat hai, <strong>${name}</strong>! Aap successfully login ho gaye hain.
             </div>
         `;
     }
 
-    // Update Top Navigation Bar Button
-    const navLoginBtn = document.querySelector('nav button');
-    if (navLoginBtn) {
-        navLoginBtn.innerText = `👤 ${name}`;
-        navLoginBtn.style.backgroundColor = '#00a86b';
+    // Update Nav Button
+    const navBtn = document.querySelector('nav button');
+    if (navBtn) {
+        navBtn.innerText = `👤 ${name}`;
     }
 
-    // Clear Form Fields
-    userNameInput.value = '';
-    userEmailInput.value = '';
-    userRoleInput.value = '';
-
-    // Auto Scroll to Dashboard
-    setTimeout(() => {
-        const dashboardSection = document.getElementById('dashboard');
-        if (dashboardSection) {
-            dashboardSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 1500);
+    // Form clear karein
+    nameInput.value = '';
+    emailInput.value = '';
+    roleInput.value = '';
 }
-
