@@ -2,7 +2,7 @@
  const supabaseUrl = "https://ccygpqecumonheiwwzql.supabase.co";
 const supabaseKey = "sb_publishable_LO1Bd5HqVhqclu6q3cZIvQ__WESL30U";
 
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
     supabaseUrl,
     supabaseKey
 );
@@ -26,7 +26,7 @@ function showLogin() {
     }
 }
 async function loginUser(email, password) {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
         email: email,
         password: password
     });
@@ -39,7 +39,7 @@ async function loginUser(email, password) {
     alert("Login successful! Welcome to SolveSphere.");
 }
 async function signupUser(email, password) {
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await supabaseClient.auth.signUp({
         email: email,
         password: password
     });
