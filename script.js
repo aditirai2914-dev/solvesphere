@@ -61,46 +61,7 @@ function showChallengeForm() {
     }
 }
 
-    if (title) {
-        const description = prompt("Describe your problem:");
 
-        if (description) {
-            let category = "General";
-            const text = (title + " " + description).toLowerCase();
-
-            if (
-                text.includes("waste") ||
-                text.includes("garbage") ||
-                text.includes("pollution") ||
-                text.includes("water")
-            ) {
-                category = "Environment";
-            } 
-            else if (
-                text.includes("school") ||
-                text.includes("student") ||
-                text.includes("education")
-            ) {
-                category = "Education";
-            } 
-            else if (
-                text.includes("hospital") ||
-                text.includes("health") ||
-                text.includes("medical")
-            ) {
-                category = "Healthcare";
-            }
-
-            alert(
-                "Challenge Submitted Successfully! 🎉\n\n" +
-                "Title: " + title + "\n" +
-                "Category: " + category + "\n\n" +
-                "AI Categorization: Completed 🤖\n" +
-                "Smart Match: Finding suitable teams 🎯"
-            );
-        }
-    }
-}
 
 function scrollToChallenges() {
     document.getElementById("challenges").scrollIntoView({
@@ -495,3 +456,26 @@ async function updateChallengeCount() {
 }
 
 document.addEventListener("DOMContentLoaded", updateChallengeCount);
+function joinTeam() {
+    const result = document.getElementById("collaborationResult");
+
+    if (result) {
+        result.innerHTML = `
+            <h3>🤝 Team Matching</h3>
+            <p>Suitable teams are being matched for this challenge.</p>
+            <p>✅ Team matching completed!</p>
+        `;
+    }
+}
+
+function findExpert() {
+    const result = document.getElementById("collaborationResult");
+
+    if (result) {
+        result.innerHTML = `
+            <h3>👨‍🏫 Expert Matching</h3>
+            <p>Finding experts related to this challenge...</p>
+            <p>✅ Suitable experts found!</p>
+        `;
+    }
+}
