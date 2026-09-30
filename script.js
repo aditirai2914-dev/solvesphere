@@ -509,4 +509,62 @@ function joinSpecificTeam(teamName) {
 function connectExpert(expertName) {
     alert("Invitation sent to " + expertName + "!");
 }
+// Global User Variable
+let currentUser = null;
+
+// Login / Register Functionality
+function loginForm() {
+    const userNameInput = document.getElementById('userName');
+    const userEmailInput = document.getElementById('userEmail');
+    const userRoleInput = document.getElementById('userRole');
+    const loginResult = document.getElementById('loginResult');
+
+    const name = userNameInput ? userNameInput.value.trim() : '';
+    const email = userEmailInput ? userEmailInput.value.trim() : '';
+    const role = userRoleInput ? userRoleInput.value : '';
+
+    // Validation Check
+    if (!name || !email || !role) {
+        if (loginResult) {
+            loginResult.innerHTML = `
+                <div style="background: #ffebe9; color: #cc0000; padding: 10px; border-radius: 5px; margin-top: 10px; border-left: 4px solid #cc0000;">
+                    ⚠️ Kripya saari details (Name, Email, Role) bharein!
+                </div>
+            `;
+        }
+        return;
+    }
+
+    // Save User Data
+    currentUser = { name, email, role };
+
+    // Display Success Message
+    if (loginResult) {
+        loginResult.innerHTML = `
+            <div style="background: #eefbf4; color: #008000; padding: 12px; border-radius: 5px; margin-top: 10px; border-left: 4px solid #00a86b;">
+                🎉 Swagat hai, <strong>${name}</strong>! Aapne as a <strong>${role}</strong> successfully login kar liya hai.
+            </div>
+        `;
+    }
+
+    // Update Top Navigation Bar Button
+    const navLoginBtn = document.querySelector('nav button');
+    if (navLoginBtn) {
+        navLoginBtn.innerText = `👤 ${name}`;
+        navLoginBtn.style.backgroundColor = '#00a86b';
+    }
+
+    // Clear Form Fields
+    userNameInput.value = '';
+    userEmailInput.value = '';
+    userRoleInput.value = '';
+
+    // Auto Scroll to Dashboard
+    setTimeout(() => {
+        const dashboardSection = document.getElementById('dashboard');
+        if (dashboardSection) {
+            dashboardSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 1500);
+}
 
