@@ -478,4 +478,35 @@ function findExpert() {
             <p>✅ Suitable experts found!</p>
         `;
     }
+}function joinTeam() {
+    const collaborationResult = document.getElementById('collaborationResult');
+    collaborationResult.innerHTML = `
+        <div style="background: #eef6ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0066cc;">
+            <h4>✅ Joining Team Options:</h4>
+            <p>1. <strong>Team Eco Innovators</strong> - Need AI Developer</p>
+            <p>2. <strong>Team HealthTech</strong> - Need UI/UX Designer</p>
+            <p>Select a team or enter team code to send a request.</p>
+        </div>
+    `;
 }
+
+function findExpert() {
+    const collaborationResult = document.getElementById('collaborationResult');
+    collaborationResult.innerHTML = `
+        <div style="background: #eefbf4; padding: 15px; border-radius: 8px; border-left: 4px solid #00a86b;">
+            <h4>👨‍🏫 Recommended Experts:</h4>
+            <p>1. <strong>Dr. Amit Verma</strong> (AI & Smart Systems)</p>
+            <p>2. <strong>Prof. Sunita Rao</strong> (Sustainable Tech)</p>
+            <p>Click connect to request guidance for your challenge.</p>
+        </div>
+    `;
+}
+
+function joinSpecificTeam(teamName) {
+    alert("Request sent to join " + teamName + " successfully!");
+}
+
+function connectExpert(expertName) {
+    alert("Invitation sent to " + expertName + "!");
+}
+

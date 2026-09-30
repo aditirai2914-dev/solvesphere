@@ -132,6 +132,59 @@
 <section id="collaboration" class="collaboration-section">
 
     <h2>🤝 Collaboration</h2>
+    <p>Connect with students and experts to work together on real-world challenges.</p>
+
+    <div class="collaboration-box">
+        <h3 id="selectedChallenge">Selected Challenge</h3>
+        <button type="button" onclick="joinTeam()">🤝 Join a Team</button>
+        <button type="button" onclick="findExpert()">👨‍🏫 Find an Expert</button>
+    </div>
+
+    <!-- Active Teams List -->
+    <div class="team-list-container" style="margin-top: 30px;">
+        <h3>👥 Available Teams to Join</h3>
+        <div class="team-grid" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+            <div class="team-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
+                <h4>Team Eco Innovators</h4>
+                <p><strong>Lead:</strong> Rahul Sharma</p>
+                <p><strong>Members Needed:</strong> Frontend Developer, AI Specialist</p>
+                <button onclick="joinSpecificTeam('Eco Innovators')" style="background-color: #0066cc; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Join This Team</button>
+            </div>
+            
+            <div class="team-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
+                <h4>Team HealthTech</h4>
+                <p><strong>Lead:</strong> Priya Singh</p>
+                <p><strong>Members Needed:</strong> Data Analyst, UI/UX Designer</p>
+                <button onclick="joinSpecificTeam('HealthTech')" style="background-color: #0066cc; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Join This Team</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentors / Experts List -->
+    <div class="expert-list-container" style="margin-top: 30px;">
+        <h3>👨‍🏫 Industry Experts & Mentors</h3>
+        <div class="expert-grid" style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+            <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
+                <h4>Dr. Amit Verma</h4>
+                <p><strong>Domain:</strong> AI & Data Science Specialist</p>
+                <p><strong>Experience:</strong> 10+ Years</p>
+                <button onclick="connectExpert('Dr. Amit Verma')" style="background-color: #00a86b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Connect Expert</button>
+            </div>
+
+            <div class="expert-card" style="border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 250px; background: #fff;">
+                <h4>Prof. Sunita Rao</h4>
+                <p><strong>Domain:</strong> Environmental Engineering</p>
+                <p><strong>Experience:</strong> 8+ Years</p>
+                <button onclick="connectExpert('Prof. Sunita Rao')" style="background-color: #00a86b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Connect Expert</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="collaborationResult" style="margin-top: 20px; font-weight: bold;"></div>
+
+</section>
+
+    <h2>🤝 Collaboration</h2>
 
     <p>
         Connect with students and experts to work together on real-world challenges.
